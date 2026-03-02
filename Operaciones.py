@@ -1,50 +1,61 @@
+from Almacenamiento import guardar_datos
 
+def consultarSaldo(datos):
+    print("\n==================================")
+    print("  Tu saldo actual es: $", datos["saldo"])
+    print("==================================")
 
-def consultarSaldo(saldo):
-    print("su saldo es: ", saldo)
-
-def RetirarSaldo(saldo, Montoaretirar):
+def depositarSaldo(datos):
     while True:
-        try:
-            Montoaretirar = int(input("Ingresa el monto que deseas retirar: "))
-        except ValueError:
-            print("Entrada no válida, ingresa un número entero")
+        monto = input("\nIngresa el valor que deseas depositar: $")
+
+        if monto.isdigit() == False:
+            print("Monto invalido, ingresa solo numeros enteros.")
             continue
 
-        if Montoaretirar <= 0:
-            print("Has ingresado un monto errado, inténtalo de nuevo")
+        monto = int(monto)
+
+        if monto <= 0:
+            print("El monto debe ser mayor a cero. Intentalo de nuevo.")
             continue
-        elif Montoaretirar > saldo:
-            print("Saldo insuficiente")
-            continue
-
-        saldo -= Montoaretirar
-        print("Retiro exitoso")
-        print("Tu nuevo saldo es:", saldo)
-        return saldo
-
-
-def DepositarSaldo(saldo, Monto_a_depositar):
-    while True:
-        try:
-            Monto_a_depositar = int(input("Ingresa el valor que deseas depositar: "))
-        except ValueError:
-            print("Entrada no válida, ingresa un número entero")
-            continue
-
-        if Monto_a_depositar <= 0:
-            print("Has ingresado un monto errado, intentalo de nuevo")
-            continue
-
         else:
-            saldo += Monto_a_depositar
-            print("Deposito exitoso",
-                "Tu nuevo saldo es: ", saldo,
-                sep="\n")
-        return saldo
+            datos["saldo"] += monto
+            datos["movimientos"].append({"tipo": "Deposito", "monto": monto})
+            guardar_datos(datos)
+            print("\nDeposito exitoso.")
+            print("Tu nuevo saldo es: $", datos["saldo"])
+            break
 
-def Salir():
-    print("Gracias por utilizar nuestros servicios",
-        "Ten un buen día",
-        sep="\n")
-        
+    return datos
+
+def retirarSaldo(datos):
+    while True:
+        monto = input("\nIngresa el monto que deseas retirar: $")
+
+        if monto.isdigit() == False:
+            print("Monto invalido, ingresa solo numeros enteros.")
+            continue
+
+        monto = int(monto)
+
+        if monto <= 0:
+            print("El monto debe ser mayor a cero. Intentalo de nuevo.")
+            continue
+        elif monto > datos["saldo"]:
+            print("Saldo insuficiente. Tu saldo actual es: $", datos["saldo"])
+            continue
+        else:
+            datos["saldo"] -= monto
+            datos["movimientos"].append({"tipo": "Retiro", "monto": monto})
+            guardar_datos(datos)
+            print("\nRetiro exitoso.")
+            print("Tu nuevo saldo es: $", datos["saldo"])
+            break
+
+    return datos
+
+def salir():
+    print("\n==================================")
+    print("  Gracias por usar el cajero.")
+    print("  Ten un buen dia!")
+    print("==================================")

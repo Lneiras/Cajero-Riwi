@@ -1,0 +1,21 @@
+{
+    "saldo": 11000,
+    "movimientos": [
+        {
+            "tipo": "Deposito",
+            "monto": 1
+        },
+        {
+            "tipo": "Retiro",
+            "monto": 1
+        },
+        {
+            "tipo": "Deposito",
+            "monto": 1000
+        },
+        {
+            "tipo": "Deposito",
+            "monto": 10000
+        }
+    ]
+}
