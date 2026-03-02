@@ -1,6 +1,6 @@
 ﻿# Cajero Automático
 
-`_Simulación de un cajero automático desarrollado en Python. Permite consultar saldo, depositar y retirar dinero, guardando los movimientos entre sesiones._`
+`Simulación de un cajero automático desarrollado en Python. Permite consultar saldo, depositar y retirar dinero, guardando los movimientos entre sesiones.`
 
 ---
 
@@ -56,6 +56,7 @@ python Main.py
 | `main` | Código estable en producción |
 | `dev` | Desarrollo de nuevas funciones |
 | `qa` | Pruebas antes de pasar a main |
+
 
 
 
