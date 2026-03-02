@@ -1,16 +1,16 @@
 from Almacenamiento import guardar_datos
 
 def consultarSaldo(datos):
-    print("\n==================================")
+    print("\n" + "=" * 50)
     print("  Tu saldo actual es: $", datos["saldo"])
-    print("==================================")
+    print("=" * 50)
 
 def depositarSaldo(datos):
     while True:
-        monto = input("\nIngresa el valor que deseas depositar: $")
+        monto = input("\nIngresa el monto que deseas depositar: $")
 
         if monto.isdigit() == False:
-            print("Monto invalido, ingresa solo numeros enteros.")
+            print("Monto invalido, intenta de nuevo.")
             continue
 
         monto = int(monto)
@@ -55,7 +55,7 @@ def retirarSaldo(datos):
     return datos
 
 def salir():
-    print("\n==================================")
+    print("\n" + "=" * 50)
     print("  Gracias por usar el cajero.")
     print("  Ten un buen dia!")
-    print("==================================")
+    print("=" * 50)

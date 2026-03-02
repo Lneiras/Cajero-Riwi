@@ -2,23 +2,26 @@ from Almacenamiento import cargar_datos
 from Operaciones import consultarSaldo, depositarSaldo, retirarSaldo, salir
 
 def menu():
-    print("\n==================================")
-    print("      CAJERO AUTOMATICO")
-    print("==================================")
-    print("  1. Consultar saldo")
-    print("  2. Depositar")
-    print("  3. Retirar")
-    print("  4. Salir")
-    print("==================================")
+    print("\n" + "=" * 50)
+    print("                CAJERO AUTOMÁTICO  ")
+    print("=" * 50)
+    print("  1. Consultar saldo",
+          "  2. Depositar",
+          "  3. Retirar",
+          "  4. Salir",
+            sep="\n")
+    print("=" * 50)
 
 def main():
-    print("\nBienvenido a tu Cajero de Confianza!")
+    print("\n" + "=" * 50)
+    print("       ¡Bienvenido a tu Cajero de Confianza!")
+    
 
     datos = cargar_datos()
 
     while True:
         menu()
-        opcion = input("Que operacion deseas realizar?: ")
+        opcion = input("¿Que operacion deseas realizar hoy?: ")
 
         if opcion == "1":
             consultarSaldo(datos)
@@ -30,6 +33,6 @@ def main():
             salir()
             break
         else:
-            print("Opcion no valida. Elige entre 1 y 4.")
+            print("opcion invalida, por favor intentalo de nuevo.")
 
 main()
